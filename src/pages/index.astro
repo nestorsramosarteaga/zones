@@ -3,62 +3,56 @@
 ---
 
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Calculadora de Zonas de Entrenamiento</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Zonas de Entrenamiento</title>
 
-        <!-- CSS global servido desde /public -->
-        <link rel="stylesheet" href="/styles.css" />
+    <!-- CSS global servido desde /public -->
+    <link rel="stylesheet" href="/styles.css" />
 
-        <!-- CDN de XLSX, igual que antes -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.min.js"
-        ></script>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Calculadora de Zonas de Entrenamiento</h1>
+    <!-- Script de la calculadora, empaquetado por Astro/Vite -->
+    <script type="module" src="/src/scripts/trainingCalculator.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calculadora de Zonas de Entrenamiento</h1>
 
-            <!-- Formulario para Threshold Pace, Threshold HR y Max HR -->
-            <form id="trainingForm">
-                <label for="thresholdPace">Threshold Pace (mm:ss):</label>
-                <input
-                    type="text"
-                    id="thresholdPace"
-                    placeholder="ej: 5:30"
-                    required
-                />
+      <!-- Formulario para Threshold Pace, Threshold HR y Max HR -->
+      <form id="trainingForm">
+        <label for="thresholdPace">Threshold Pace (mm:ss):</label>
+        <input
+          type="text"
+          id="thresholdPace"
+          placeholder="ej: 5:30"
+          required
+        />
 
-                <label for="thresholdHR">Threshold HR (bpm):</label>
-                <input
-                    type="number"
-                    id="thresholdHR"
-                    placeholder="ej: 175"
-                    required
-                />
+        <label for="thresholdHR">Threshold HR (bpm):</label>
+        <input
+          type="number"
+          id="thresholdHR"
+          placeholder="ej: 175"
+          required
+        />
 
-                <label for="maxHR">Max HR (bpm):</label>
-                <input
-                    type="number"
-                    id="maxHR"
-                    placeholder="ej: 200"
-                    required
-                />
+        <label for="maxHR">Max HR (bpm):</label>
+        <input
+          type="number"
+          id="maxHR"
+          placeholder="ej: 200"
+          required
+        />
 
-                <button type="submit">Calcular Zonas</button>
-            </form>
+        <button type="submit">Calcular Zonas</button>
+      </form>
 
-            <!-- Reporte de Resultados -->
-            <div id="result"></div>
+      <!-- Reporte de Resultados -->
+      <div id="result"></div>
 
-            <!-- Botón para Descargar Excel -->
-            <button id="downloadBtn" style="display: none" class="download-btn">
-                Descargar Excel
-            </button>
-        </div>
-
-        <!-- Tu JS de interacción, servido desde /public -->
-        <script src="/script.js"></script>
-    </body>
+      <!-- Botón para Descargar Excel -->
+      <button id="downloadBtn" style="display: none" class="download-btn">
+        Descargar Excel
+      </button>
+    </div>
 </html>

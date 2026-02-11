@@ -199,7 +199,8 @@ export function buildPaceRow(zone) {
 
   if (zone.maxPercent === null) {
     // Z7 Sprint
-    paceRange = `< ${zone.minPace}`;
+    const startPace = zone.maxPace === "∞" ? zone.minPace : zone.maxPace;
+    paceRange = `${startPace} a más rápido`;
   } else if (zone.minPercent === 0) {
     // Z1 Recovery - sin límite superior
     paceRange = `${zone.minPace} y más lento`;
@@ -285,7 +286,8 @@ export function buildPaceExcelData(thresholdPace, paceZones) {
     let paceRange;
 
     if (zone.maxPercent === null) {
-      paceRange = `< ${zone.minPace}`;
+      const startPace = zone.maxPace === "∞" ? zone.minPace : zone.maxPace;
+      paceRange = `${startPace} a más rápido`;
     } else if (zone.minPercent === 0) {
       paceRange = `${zone.minPace} y más lento`;
     } else {
